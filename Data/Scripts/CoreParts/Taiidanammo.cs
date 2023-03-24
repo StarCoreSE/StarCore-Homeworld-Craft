@@ -513,7 +513,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -627,7 +627,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -740,7 +740,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -869,7 +869,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -982,7 +982,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -1094,7 +1094,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -1206,7 +1206,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -2344,7 +2344,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -2458,7 +2458,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -2571,7 +2571,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -2700,7 +2700,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -2813,7 +2813,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -2925,7 +2925,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
@@ -3037,7 +3037,7 @@ namespace Scripts
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
-                        SelfPhasing = false, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
+                        SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
                         SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
