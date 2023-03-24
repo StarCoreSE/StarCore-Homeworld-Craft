@@ -400,7 +400,7 @@ namespace Scripts
                         SelfAvoidance = false, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = false, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
                         SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
-                        SwapNavigationType = true, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
+                        SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
                         {
@@ -1319,7 +1319,7 @@ namespace Scripts
                         SelfAvoidance = false, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = false, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
                         SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
-                        SwapNavigationType = true, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
+                        SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
                         {
@@ -2231,7 +2231,7 @@ namespace Scripts
                         SelfAvoidance = false, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = false, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
                         SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
-                        SwapNavigationType = true, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
+                        SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
                         {
@@ -3150,7 +3150,7 @@ namespace Scripts
                         SelfAvoidance = false, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
                         TargetAvoidance = false, // If this and FutureIntersect is enabled then projectiles will actively avoid the target.
                         SelfPhasing = true, // If enabled the projectiles can phase through the parent grids without doing damage or dying.
-                        SwapNavigationType = true, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
+                        SwapNavigationType = false, // This will swap to other navigation  (i.e. the alternate of what is set in smart, ProNav vs ZeroEffort) 
                         // Audio/Visual Section
                         AlternateParticle = new ParticleDef // if blank it will use default, must be a default version for this to be useable. 
                         {
