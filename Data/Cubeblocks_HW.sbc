@@ -15,6 +15,7 @@
 			Launches a variety of Taiidani ships.
       Capacity: 40 fighters (bombers x2 cost)
       MaxActive = 5
+      [MINTARGET DISTANCE OF 500]
         
       </Description>
 			
@@ -92,11 +93,12 @@
 
       <Description>
 
-			Launches a variety of Taiidani ships.
-      Both ends need to be open to space.
-      Capacity: 80 fighters (bombers x2 cost)
-      MaxActive = 5
-        
+        Launches a variety of Taiidani ships.
+        Both ends need to be open to space.
+        Capacity: 80 fighters (bombers x2 cost)
+        MaxActive = 5
+        [MINTARGET DISTANCE OF 500]
+
       </Description>
 			
 			<Icon>Textures\Icons\Taiidan_insignia.png</Icon>
@@ -175,6 +177,7 @@
         Launches a variety of Taiidani ships.
         Capacity: 1 fighter
         MaxActive = 1
+        [MINTARGET DISTANCE OF 500]
 
       </Description>
 
