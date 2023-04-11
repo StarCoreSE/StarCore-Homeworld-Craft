@@ -120,6 +120,15 @@
 			</Components>
 			<CriticalComponent Index="0" Subtype="Computer"/>
 			<MountPoints>
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="13" EndY="17" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="13" EndY="17" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="17" EndY="5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="17" EndY="5" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1.5" EndY="5" />
+        <MountPoint Side="Front" StartX="13" StartY="0" EndX="11.5" EndY="5" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1.5" EndY="5" />
+        <MountPoint Side="Back" StartX="13" StartY="0" EndX="11.5" EndY="5" />
+
 			</MountPoints>
 			<BuildProgressModels>
 			</BuildProgressModels>
@@ -200,6 +209,12 @@
       </Components>
       <CriticalComponent Index="0" Subtype="Computer"/>
       <MountPoints>
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="7" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="5" EndY="7" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="7" EndY="5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="7" EndY="5" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="5" EndY="5" />
+
       </MountPoints>
       <BuildProgressModels>
       </BuildProgressModels>
