@@ -2920,7 +2920,7 @@ namespace Scripts
                         NoTimedSpawns = true, // When true timedSpawns will not be triggered while this approach is active.
                         DisableAvoidance = false, // Disable futureIntersect.
                         IgnoreAntiSmart = true, // If set to true, antismart cannot change this approaches target.
-                        HeatRefund = 1000, // how much heat to refund when related EndEvent/StartEvent is met.
+                        HeatRefund = 200, // how much heat to refund when related EndEvent/StartEvent is met.
                         ReloadRefund = false, // Refund a reload (for max reload).
                         ToggleIngoreVoxels = false, // Toggles whatever the default IgnoreVoxel value to its opposite. 
                         SelfAvoidance = true, // If this and FutureIntersect is enabled then projectiles will actively avoid the parent grids.
