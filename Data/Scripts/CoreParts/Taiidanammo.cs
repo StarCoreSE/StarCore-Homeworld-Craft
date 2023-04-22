@@ -92,7 +92,7 @@ namespace Scripts
                     Interval = 5, // Time between spawning fragments, in ticks, 0 means every tick, 1 means every other
                     StartTime = 0, // Time delay to start spawning fragments, in ticks, of total projectile life
                     MaxSpawns = 400, // Max number of fragment children to spawn
-                    Proximity = 1000, // Starting distance from target bounding sphere to start spawning fragments, 0 disables this feature.  No spawning outside this distance
+                    Proximity = 2000, // Starting distance from target bounding sphere to start spawning fragments, 0 disables this feature.  No spawning outside this distance
                     ParentDies = false, // Parent dies once after it spawns its last child.
                     PointAtTarget = true, // Start fragment direction pointing at Target
                     PointType = Predict, // Point accuracy, Direct (straight forward), Lead (always fire), Predict (only fire if it can hit)
@@ -314,6 +314,7 @@ namespace Scripts
                 },
                 Approaches = new[] // These approaches move forward and backward in order, once the end condition of the last one is reached it will revert to default behavior. Cost level of 4+, or 5+ if used with steering.
                 {
+                    //0
                     new ApproachDef // Launch
                     {
                         // Start/End behaviors 
@@ -425,13 +426,34 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //1
                     new ApproachDef // Travel
                     {
                         // Start/End behaviors 
-                        RestartCondition = MoveToNext, // Wait, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
-                        OnRestartRevertTo = -1, // This applies if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
-                        Operators = StartEnd_And, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
+                        RestartCondition = ForceRestart, // Wait*, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
+                        RestartList = new[]
+                        { // This list is used if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
+                            new WeightedIdListDef
+                            {// If all valid entries (below MaxRuns) role a 0 (i.e. weights are disabled), then the entry with the lowest current "Runs" will be selected, if two or more share lowest runs then the winner is decided by the order below.
+                                ApproachId = 3,
+                                MaxRuns = 0, // 0 means unlimited, defines how many times this entry can return true. 
+                                Weight = Random(1, 1), // The approachId that rolls the highest number will be selected
+                                End1WeightMod = 11, // multiplies the weight Start and End value by this number, if both End conditions were true the highest roll between them wins, 0 means disabled
+                                End2WeightMod = 0,
+                                End3WeightMod = 0,
+                            },
+                            new WeightedIdListDef
+                            {
+                                //rtb
+                                ApproachId = 5,
+                                MaxRuns = 1,
+                                Weight = Random(1, 1),
+                                End1WeightMod = 1,
+                                End2WeightMod = 11,
+                                End3WeightMod = 0,
+                            },
+                        },
+                        Operators = StartAnd_EndOr, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
                         CanExpireOnceStarted = false, // This stages values will continue to apply until the end conditions are met.
                         ForceRestart = false, // This forces the ReStartCondition when the end condition is met no matter if the start condition was met or not.
 
@@ -443,14 +465,14 @@ namespace Scripts
                                                     // *NOTE* DO NOT set start1 and start2 or end1 and end2 to same condition
                         StartCondition2 = Ignore,
                         EndCondition1 = DistanceFromPositionC,
-                        EndCondition2 = Ignore,
+                        EndCondition2 = RelativeHealthLost,
                         EndCondition3 = Ignore,
 
                         // Start/End thresholds -- both conditions are evaluated before activation, use Ignore to skip
                         Start1Value = 501,
                         Start2Value = 0,
                         End1Value = 500,
-                        End2Value = 0,
+                        End2Value = 20,
                         End3Value = 0, 
                         
                         // Special triggers when the start/end conditions are met (DoNothing, EndProjectile, EndProjectileOnRestart, StoreDestination)
@@ -539,12 +561,32 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //2
                     new ApproachDef // Orbit
                     {
-                        // Start/End behaviors 
-                        RestartCondition = MoveToNext, // Wait, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
-                        OnRestartRevertTo = -1, // This applies if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
+                        RestartCondition = ForceRestart, // Wait*, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
+                        RestartList = new[]
+                        { // This list is used if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
+                            new WeightedIdListDef
+                            {// If all valid entries (below MaxRuns) role a 0 (i.e. weights are disabled), then the entry with the lowest current "Runs" will be selected, if two or more share lowest runs then the winner is decided by the order below.
+                                ApproachId = 4,
+                                MaxRuns = 0, // 0 means unlimited, defines how many times this entry can return true. 
+                                Weight = Random(0, 1), // The approachId that rolls the highest number will be selected
+                                End1WeightMod = 11, // multiplies the weight Start and End value by this number, if both End conditions were true the highest roll between them wins, 0 means disabled
+                                End2WeightMod = 11,
+                                End3WeightMod = 1,
+                            },
+                            new WeightedIdListDef
+                            {
+                                //rtb
+                                ApproachId = 1,
+                                MaxRuns = 0,
+                                Weight = Random(0, 1),
+                                End1WeightMod = 1,
+                                End2WeightMod = 1,
+                                End3WeightMod = 11,
+                            },
+                        },
                         Operators = StartAnd_EndOr, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
                         CanExpireOnceStarted = false, // This stages values will continue to apply until the end conditions are met.
                         ForceRestart = false, // This forces the ReStartCondition when the end condition is met no matter if the start condition was met or not.
@@ -558,14 +600,14 @@ namespace Scripts
                         StartCondition2 = Ignore,
                         EndCondition1 = RelativeLifetime,
                         EndCondition2 = EnemyTargetLoss,
-                        EndCondition3 = Ignore,
+                        EndCondition3 = RelativeHealthLost,
 
                         // Start/End thresholds -- both conditions are evaluated before activation, use Ignore to skip
                         Start1Value = 600,
                         Start2Value = 0,
                         End1Value = 300,
                         End2Value = 60,
-                        End3Value = 0, 
+                        End3Value = 10, 
                         
                         // Special triggers when the start/end conditions are met (DoNothing, EndProjectile, EndProjectileOnRestart, StoreDestination)
                         StartEvent = DoNothing,
@@ -613,10 +655,10 @@ namespace Scripts
 
                         // Target navigation behavior 
                         Orbit = true, // Orbit the target
-                        OrbitRadius = 500, // The orbit radius to extend between the projectile and the target (target volume + this value)
-                        OffsetMinRadius = 0, // Min Radius to offset from target.  
-                        OffsetMaxRadius = 0, // Max Radius to offset from target.  
-                        OffsetTime = 0, // How often to change the offset direction.
+                        OrbitRadius = 750, // The orbit radius to extend between the projectile and the target (target volume + this value)
+                        OffsetMinRadius = 500, // Min Radius to offset from target.  
+                        OffsetMaxRadius = 1000, // Max Radius to offset from target.  
+                        OffsetTime = 480, // How often to change the offset direction.
                         
                         // Other
                         NoTimedSpawns = true, // When true timedSpawns will not be triggered while this approach is active.
@@ -653,12 +695,34 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //3
                     new ApproachDef // Turn
                     {
                         // Start/End behaviors 
-                        RestartCondition = MoveToNext, // Wait, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
-                        Operators = StartEnd_And, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
+                        RestartCondition = ForceRestart, // Wait*, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
+                        RestartList = new[]
+                        { // This list is used if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
+                            new WeightedIdListDef
+                            {// If all valid entries (below MaxRuns) role a 0 (i.e. weights are disabled), then the entry with the lowest current "Runs" will be selected, if two or more share lowest runs then the winner is decided by the order below.
+                                ApproachId = 4,
+                                MaxRuns = 0, // 0 means unlimited, defines how many times this entry can return true. 
+                                Weight = Random(1, 1), // The approachId that rolls the highest number will be selected
+                                End1WeightMod = 11, // multiplies the weight Start and End value by this number, if both End conditions were true the highest roll between them wins, 0 means disabled
+                                End2WeightMod = 1,
+                                End3WeightMod = 1,
+                            },
+                            new WeightedIdListDef
+                            {
+                                //rtb
+                                ApproachId = 1,
+                                MaxRuns = 0,
+                                Weight = Random(1, 1),
+                                End1WeightMod = 1,
+                                End2WeightMod = 11,
+                                End3WeightMod = 1,
+                            },
+                        },
+                        Operators = StartAnd_EndOr, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
                         CanExpireOnceStarted = false, // This stages values will continue to apply until the end conditions are met.
                         ForceRestart = false, // This forces the ReStartCondition when the end condition is met no matter if the start condition was met or not.
 
@@ -670,14 +734,14 @@ namespace Scripts
                                                     // *NOTE* DO NOT set start1 and start2 or end1 and end2 to same condition
                         StartCondition2 = Ignore,
                         EndCondition1 = RelativeLifetime,
-                        EndCondition2 = Ignore,
+                        EndCondition2 = RelativeHealthLost,
                         EndCondition3 = Ignore,
 
                         // Start/End thresholds -- both conditions are evaluated before activation, use Ignore to skip
                         Start1Value = 300,
                         Start2Value = 0,
                         End1Value = 90,
-                        End2Value = 0,
+                        End2Value = 10,
                         End3Value = 0, 
                         
                         // Special triggers when the start/end conditions are met (DoNothing, EndProjectile, EndProjectileOnRestart, StoreDestination)
@@ -726,10 +790,10 @@ namespace Scripts
 
                         // Target navigation behavior 
                         Orbit = true, // Orbit the target
-                        OrbitRadius = 500, // The orbit radius to extend between the projectile and the target (target volume + this value)
-                        OffsetMinRadius = 0, // Min Radius to offset from target.  
-                        OffsetMaxRadius = 0, // Max Radius to offset from target.  
-                        OffsetTime = 0, // How often to change the offset direction.
+                        OrbitRadius = 750, // The orbit radius to extend between the projectile and the target (target volume + this value)
+                        OffsetMinRadius = 500, // Min Radius to offset from target.  
+                        OffsetMaxRadius = 1000, // Max Radius to offset from target.  
+                        OffsetTime = 480, // How often to change the offset direction.
                         
                         // Other
                         NoTimedSpawns = true, // When true timedSpawns will not be triggered while this approach is active.
@@ -767,7 +831,7 @@ namespace Scripts
                         AlternateSound = "", // if blank it will use default, must be a default version for this to be useable. 
                         ModelRotateTime = 60, // If this value is greater than 0 then the projectile model will rotate to face the target, a value of 1 is instant (in ticks).
                     },
-
+                    //4
                     new ApproachDef // Strafe
                     {
                         // Start/End behaviors 
@@ -779,17 +843,24 @@ namespace Scripts
                                 ApproachId = 2,
                                 MaxRuns = 10, // 0 means unlimited, defines how many times this entry can return true. 
                                 Weight = Random(3, 10),
+                                End1WeightMod = 1,
+                                End2WeightMod = 1,
+                                End3WeightMod = 11,
+
                             },
                             new WeightedIdListDef
                             {// If all valid entries (below MaxRuns) role a 0 (i.e. weights are disabled), then the entry with the lowest current "Runs" will be selected, if two or more share lowest runs then the winner is decided by the order below.
                                 ApproachId = 5,
                                 MaxRuns = 1, // 0 means unlimited, defines how many times this entry can return true. 
-                                Weight = Random(0, 2),
+                                Weight = Random(0, 3),
+                                End1WeightMod = 0,
+                                End2WeightMod = 0,
+                                End3WeightMod = 11,
                             },
                         },
                         Operators = StartAnd_EndOr, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
                         CanExpireOnceStarted = false, // This stages values will continue to apply until the end conditions are met.
-                        ForceRestart = true, // This forces the ReStartCondition when the end condition is met no matter if the start condition was met or not.
+                        ForceRestart = false, // This forces the ReStartCondition when the end condition is met no matter if the start condition was met or not.
 
                         // Start/End conditions
                         StartCondition1 = SinceTimedSpawn, // Each condition type is either >= or <= the corresponding value defined below.
@@ -800,14 +871,14 @@ namespace Scripts
                         StartCondition2 = Ignore,
                         EndCondition1 = RelativeLifetime,
                         EndCondition2 = EnemyTargetLoss,
-                        EndCondition3 = Ignore,
+                        EndCondition3 = RelativeHealthLost,
 
                         // Start/End thresholds -- both conditions are evaluated before activation, use Ignore to skip
                         Start1Value = 300,
                         Start2Value = 0,
                         End1Value = 230,
                         End2Value = 60,
-                        End3Value = 0, 
+                        End3Value = 10, 
                         
                         // Special triggers when the start/end conditions are met (DoNothing, EndProjectile, EndProjectileOnRestart, StoreDestination)
                         StartEvent = DoNothing,
@@ -855,10 +926,10 @@ namespace Scripts
 
                         // Target navigation behavior 
                         Orbit = true, // Orbit the target
-                        OrbitRadius = 500, // The orbit radius to extend between the projectile and the target (target volume + this value)
-                        OffsetMinRadius = 0, // Min Radius to offset from target.  
-                        OffsetMaxRadius = 0, // Max Radius to offset from target.  
-                        OffsetTime = 0, // How often to change the offset direction.
+                        OrbitRadius = 750, // The orbit radius to extend between the projectile and the target (target volume + this value)
+                        OffsetMinRadius = 500, // Min Radius to offset from target.  
+                        OffsetMaxRadius = 1000, // Max Radius to offset from target.  
+                        OffsetTime = 480, // How often to change the offset direction.
                         
                         // Other
                         NoTimedSpawns = false, // When true timedSpawns will not be triggered while this approach is active.
@@ -896,7 +967,7 @@ namespace Scripts
                         AlternateSound = "", // if blank it will use default, must be a default version for this to be useable. 
                         ModelRotateTime = 59, // If this value is greater than 0 then the projectile model will rotate to face the target, a value of 1 is instant (in ticks).
                     },
-
+                    //5
                     new ApproachDef // RTB
                     {
                         // Start/End behaviors 
@@ -964,7 +1035,7 @@ namespace Scripts
                         AccelMulti = 1.0, // Modify default acceleration by this factor
                         DeAccelMulti = 0, // Modifies your default deacceleration by this factor
                         TotalAccelMulti = 0, // Modifies your default totalacceleration by this factor
-                        SpeedCapMulti = 1.0, // Limit max speed to this factor, must keep this value BELOW default maxspeed (1).
+                        SpeedCapMulti = 2.0, // Limit max speed to this factor, must keep this value BELOW default maxspeed (1).
 
                         // Target navigation behavior 
                         Orbit = false, // Orbit the target
@@ -1008,7 +1079,7 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //6
                     new ApproachDef // Recover Orbit
                     {
                         // Start/End behaviors 
@@ -1120,7 +1191,7 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //7
                     new ApproachDef // Recover
                     {
                         // Start/End behaviors 
@@ -1185,7 +1256,7 @@ namespace Scripts
                         PushLeadByTravelDistance = false, // the follow lead position will move in its point direction by an amount equal to the projectiles travel distance.
 
                         // Modify speed and acceleration ratios while this approach is active
-                        AccelMulti = 1.0, // Modify default acceleration by this factor
+                        AccelMulti = 3.0, // Modify default acceleration by this factor
                         DeAccelMulti = 0, // Modifies your default deacceleration by this factor
                         TotalAccelMulti = 0, // Modifies your default totalacceleration by this factor
                         SpeedCapMulti = 1.0, // Limit max speed to this factor, must keep this value BELOW default maxspeed (1).
@@ -1232,7 +1303,7 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //8
                     new ApproachDef // Dock
                     {
                         // Start/End behaviors 
@@ -1297,7 +1368,7 @@ namespace Scripts
                         PushLeadByTravelDistance = false, // the follow lead position will move in its point direction by an amount equal to the projectiles travel distance.
 
                         // Modify speed and acceleration ratios while this approach is active
-                        AccelMulti = 1.0, // Modify default acceleration by this factor
+                        AccelMulti = 3.0, // Modify default acceleration by this factor
                         DeAccelMulti = 0, // Modifies your default deacceleration by this factor
                         TotalAccelMulti = 0, // Modifies your default totalacceleration by this factor
                         SpeedCapMulti = 1.0, // Limit max speed to this factor, must keep this value BELOW default maxspeed (1).
@@ -2145,6 +2216,7 @@ namespace Scripts
                 },
                 Approaches = new[] // These approaches move forward and backward in order, once the end condition of the last one is reached it will revert to default behavior. Cost level of 4+, or 5+ if used with steering.
                 {
+                    //0
                     new ApproachDef // Launch
                     {
                         // Start/End behaviors 
@@ -2256,13 +2328,33 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //1
                     new ApproachDef // Travel
                     {
-                        // Start/End behaviors 
-                        RestartCondition = MoveToNext, // Wait, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
-                        OnRestartRevertTo = -1, // This applies if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
-                        Operators = StartEnd_And, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
+                        RestartCondition = ForceRestart, // Wait*, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
+                        RestartList = new[]
+                        { // This list is used if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
+                            new WeightedIdListDef
+                            {// If all valid entries (below MaxRuns) role a 0 (i.e. weights are disabled), then the entry with the lowest current "Runs" will be selected, if two or more share lowest runs then the winner is decided by the order below.
+                                ApproachId = 2,
+                                MaxRuns = 0, // 0 means unlimited, defines how many times this entry can return true. 
+                                Weight = Random(1, 1), // The approachId that rolls the highest number will be selected
+                                End1WeightMod = 1, // multiplies the weight Start and End value by this number, if both End conditions were true the highest roll between them wins, 0 means disabled
+                                End2WeightMod = 0,
+                                End3WeightMod = 0,
+                            },
+                            new WeightedIdListDef
+                            {
+                                //rtb
+                                ApproachId = 5,
+                                MaxRuns = 1,
+                                Weight = Random(1, 1),
+                                End1WeightMod = 0,
+                                End2WeightMod = 1,
+                                End3WeightMod = 0,
+                            },
+                        },
+                        Operators = StartAnd_EndOr, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
                         CanExpireOnceStarted = false, // This stages values will continue to apply until the end conditions are met.
                         ForceRestart = false, // This forces the ReStartCondition when the end condition is met no matter if the start condition was met or not.
 
@@ -2274,14 +2366,14 @@ namespace Scripts
                                                     // *NOTE* DO NOT set start1 and start2 or end1 and end2 to same condition
                         StartCondition2 = Ignore,
                         EndCondition1 = DistanceFromPositionC,
-                        EndCondition2 = Ignore,
+                        EndCondition2 = HealthRemaining,
                         EndCondition3 = Ignore,
 
                         // Start/End thresholds -- both conditions are evaluated before activation, use Ignore to skip
                         Start1Value = 501,
                         Start2Value = 0,
                         End1Value = 700,
-                        End2Value = 0,
+                        End2Value = 900,
                         End3Value = 0, 
                         
                         // Special triggers when the start/end conditions are met (DoNothing, EndProjectile, EndProjectileOnRestart, StoreDestination)
@@ -2370,12 +2462,32 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //2
                     new ApproachDef // Orbit
                     {
-                        // Start/End behaviors 
-                        RestartCondition = MoveToNext, // Wait, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
-                        OnRestartRevertTo = -1, // This applies if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
+                        RestartCondition = ForceRestart, // Wait*, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
+                        RestartList = new[]
+                        { // This list is used if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
+                            new WeightedIdListDef
+                            {// If all valid entries (below MaxRuns) role a 0 (i.e. weights are disabled), then the entry with the lowest current "Runs" will be selected, if two or more share lowest runs then the winner is decided by the order below.
+                                ApproachId = 3,
+                                MaxRuns = 0, // 0 means unlimited, defines how many times this entry can return true. 
+                                Weight = Random(0, 1), // The approachId that rolls the highest number will be selected
+                                End1WeightMod = 11, // multiplies the weight Start and End value by this number, if both End conditions were true the highest roll between them wins, 0 means disabled
+                                End2WeightMod = 11,
+                                End3WeightMod = 1,
+                            },
+                            new WeightedIdListDef
+                            {
+                                //rtb
+                                ApproachId = 5,
+                                MaxRuns = 0,
+                                Weight = Random(0, 1),
+                                End1WeightMod = 1,
+                                End2WeightMod = 1,
+                                End3WeightMod = 11,
+                            },
+                        },
                         Operators = StartAnd_EndOr, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
                         CanExpireOnceStarted = false, // This stages values will continue to apply until the end conditions are met.
                         ForceRestart = false, // This forces the ReStartCondition when the end condition is met no matter if the start condition was met or not.
@@ -2445,9 +2557,9 @@ namespace Scripts
                         // Target navigation behavior 
                         Orbit = true, // Orbit the target
                         OrbitRadius = 4000, // The orbit radius to extend between the projectile and the target (target volume + this value)
-                        OffsetMinRadius = 0, // Min Radius to offset from target.  
-                        OffsetMaxRadius = 0, // Max Radius to offset from target.  
-                        OffsetTime = 0, // How often to change the offset direction.
+                        OffsetMinRadius = 100, // Min Radius to offset from target.  
+                        OffsetMaxRadius = 500, // Max Radius to offset from target.  
+                        OffsetTime = 240, // How often to change the offset direction.
                         
                         // Other
                         NoTimedSpawns = true, // When true timedSpawns will not be triggered while this approach is active.
@@ -2484,12 +2596,33 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //3
                     new ApproachDef // Turn
                     {
-                        // Start/End behaviors 
-                        RestartCondition = MoveToNext, // Wait, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
-                        Operators = StartEnd_And, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
+                        RestartCondition = ForceRestart, // Wait*, MoveToPrevious, MoveToNext, ForceRestart -- A restart condition is when the end condition is reached without having met the start condition. 
+                        RestartList = new[]
+                        { // This list is used if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
+                            new WeightedIdListDef
+                            {// If all valid entries (below MaxRuns) role a 0 (i.e. weights are disabled), then the entry with the lowest current "Runs" will be selected, if two or more share lowest runs then the winner is decided by the order below.
+                                ApproachId = 4,
+                                MaxRuns = 0, // 0 means unlimited, defines how many times this entry can return true. 
+                                Weight = Random(0, 1), // The approachId that rolls the highest number will be selected
+                                End1WeightMod = 1, // multiplies the weight Start and End value by this number, if both End conditions were true the highest roll between them wins, 0 means disabled
+                                End2WeightMod = 1,
+                                End3WeightMod = 0,
+                            },
+                            new WeightedIdListDef
+                            {
+                                //rtb
+                                ApproachId = 1,
+                                MaxRuns = 0,
+                                Weight = Random(0, 1),
+                                End1WeightMod = 1,
+                                End2WeightMod = 11,
+                                End3WeightMod = 0,
+                            },
+                        },
+                        Operators = StartAnd_EndOr, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
                         CanExpireOnceStarted = false, // This stages values will continue to apply until the end conditions are met.
                         ForceRestart = false, // This forces the ReStartCondition when the end condition is met no matter if the start condition was met or not.
 
@@ -2501,14 +2634,14 @@ namespace Scripts
                                                     // *NOTE* DO NOT set start1 and start2 or end1 and end2 to same condition
                         StartCondition2 = Ignore,
                         EndCondition1 = RelativeLifetime,
-                        EndCondition2 = Ignore,
+                        EndCondition2 = RelativeHealthLost,
                         EndCondition3 = Ignore,
 
                         // Start/End thresholds -- both conditions are evaluated before activation, use Ignore to skip
                         Start1Value = 300,
                         Start2Value = 0,
                         End1Value = 90,
-                        End2Value = 0,
+                        End2Value = 10,
                         End3Value = 0, 
                         
                         // Special triggers when the start/end conditions are met (DoNothing, EndProjectile, EndProjectileOnRestart, StoreDestination)
@@ -2598,7 +2731,7 @@ namespace Scripts
                         AlternateSound = "", // if blank it will use default, must be a default version for this to be useable. 
                         ModelRotateTime = 0, // If this value is greater than 0 then the projectile model will rotate to face the target, a value of 1 is instant (in ticks).
                     },
-
+                    //4
                     new ApproachDef // Strafe
                     {
                         // Start/End behaviors 
@@ -2607,15 +2740,22 @@ namespace Scripts
                         { // This list is used if RestartCondition is set to ForceRestart and trigger requirement was met. -1 to reset to BEFORE the for approach stage was activated.  First stage is 0, second is 1, etc...
                             new WeightedIdListDef
                             {// If all valid entries (below MaxRuns) role a 0 (i.e. weights are disabled), then the entry with the lowest current "Runs" will be selected, if two or more share lowest runs then the winner is decided by the order below.
-                                ApproachId = 2,
+                                ApproachId = 1,
                                 MaxRuns = 4, // 0 means unlimited, defines how many times this entry can return true. 
                                 Weight = Random(3, 10),
+                                End1WeightMod = 1,
+                                End2WeightMod = 1,
+                                End3WeightMod = 11,
+
                             },
                             new WeightedIdListDef
                             {// If all valid entries (below MaxRuns) role a 0 (i.e. weights are disabled), then the entry with the lowest current "Runs" will be selected, if two or more share lowest runs then the winner is decided by the order below.
                                 ApproachId = 5,
                                 MaxRuns = 1, // 0 means unlimited, defines how many times this entry can return true. 
-                                Weight = Random(0, 2),
+                                Weight = Random(0, 3),
+                                End1WeightMod = 0,
+                                End2WeightMod = 0,
+                                End3WeightMod = 11,
                             },
                         },
                         Operators = StartAnd_EndOr, // Controls how the start and end conditions are matched:  StartEnd_And, StartEnd_Or, StartAnd_EndOr,StartOr_EndAnd,
@@ -2631,14 +2771,14 @@ namespace Scripts
                         StartCondition2 = Ignore,
                         EndCondition1 = RelativeLifetime,
                         EndCondition2 = EnemyTargetLoss,
-                        EndCondition3 = Ignore,
+                        EndCondition3 = RelativeHealthLost,
 
                         // Start/End thresholds -- both conditions are evaluated before activation, use Ignore to skip
                         Start1Value = 300,
                         Start2Value = 0,
                         End1Value = 230,
                         End2Value = 60,
-                        End3Value = 0, 
+                        End3Value = 10, 
                         
                         // Special triggers when the start/end conditions are met (DoNothing, EndProjectile, EndProjectileOnRestart, StoreDestination)
                         StartEvent = DoNothing,
@@ -2687,8 +2827,8 @@ namespace Scripts
                         // Target navigation behavior 
                         Orbit = false, // Orbit the target
                         OrbitRadius = 1000, // The orbit radius to extend between the projectile and the target (target volume + this value)
-                        OffsetMinRadius = 300, // Min Radius to offset from target.  
-                        OffsetMaxRadius = 600, // Max Radius to offset from target.  
+                        OffsetMinRadius = 600, // Min Radius to offset from target.  
+                        OffsetMaxRadius = 800, // Max Radius to offset from target.  
                         OffsetTime = 120, // How often to change the offset direction.
                         
                         // Other
@@ -2727,7 +2867,7 @@ namespace Scripts
                         AlternateSound = "", // if blank it will use default, must be a default version for this to be useable. 
                         ModelRotateTime = 0, // If this value is greater than 0 then the projectile model will rotate to face the target, a value of 1 is instant (in ticks).
                     },
-
+                    //5
                     new ApproachDef // RTB
                     {
                         // Start/End behaviors 
@@ -2795,7 +2935,7 @@ namespace Scripts
                         AccelMulti = 1.0, // Modify default acceleration by this factor
                         DeAccelMulti = 0, // Modifies your default deacceleration by this factor
                         TotalAccelMulti = 0, // Modifies your default totalacceleration by this factor
-                        SpeedCapMulti = 1.0, // Limit max speed to this factor, must keep this value BELOW default maxspeed (1).
+                        SpeedCapMulti = 2.0, // Limit max speed to this factor, must keep this value BELOW default maxspeed (1).
 
                         // Target navigation behavior 
                         Orbit = false, // Orbit the target
@@ -2839,7 +2979,7 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //6
                     new ApproachDef // Recover
                     {
                         // Start/End behaviors 
@@ -2904,7 +3044,7 @@ namespace Scripts
                         PushLeadByTravelDistance = false, // the follow lead position will move in its point direction by an amount equal to the projectiles travel distance.
 
                         // Modify speed and acceleration ratios while this approach is active
-                        AccelMulti = 1.0, // Modify default acceleration by this factor
+                        AccelMulti = 3.0, // Modify default acceleration by this factor
                         DeAccelMulti = 0, // Modifies your default deacceleration by this factor
                         TotalAccelMulti = 0, // Modifies your default totalacceleration by this factor
                         SpeedCapMulti = 1.0, // Limit max speed to this factor, must keep this value BELOW default maxspeed (1).
@@ -2951,7 +3091,7 @@ namespace Scripts
                         AlternateModel = "", // Define only if you want to switch to an alternate model in this phase
                         AlternateSound = "" // if blank it will use default, must be a default version for this to be useable. 
                     },
-
+                    //7
                     new ApproachDef // Dock
                     {
                         // Start/End behaviors 
@@ -3016,7 +3156,7 @@ namespace Scripts
                         PushLeadByTravelDistance = false, // the follow lead position will move in its point direction by an amount equal to the projectiles travel distance.
 
                         // Modify speed and acceleration ratios while this approach is active
-                        AccelMulti = 1.0, // Modify default acceleration by this factor
+                        AccelMulti = 3.0, // Modify default acceleration by this factor
                         DeAccelMulti = 0, // Modifies your default deacceleration by this factor
                         TotalAccelMulti = 0, // Modifies your default totalacceleration by this factor
                         SpeedCapMulti = 1.0, // Limit max speed to this factor, must keep this value BELOW default maxspeed (1).

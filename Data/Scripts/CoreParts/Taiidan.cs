@@ -50,7 +50,7 @@ namespace Scripts {
                 MinimumDiameter = 0, // Minimum radius of threat to engage.
                 MaximumDiameter = 0, // Maximum radius of threat to engage; 0 = unlimited.
                 MaxTargetDistance = 10000, // Maximum distance at which targets will be automatically shot at; 0 = unlimited.
-                MinTargetDistance = 500, // Minimum distance at which targets will be automatically shot at.
+                MinTargetDistance = 1000, // Minimum distance at which targets will be automatically shot at.
                 TopTargets = 18, // Maximum number of targets to randomize between; 0 = unlimited.
                 CycleTargets = 0, // Number of targets to "cycle" per acquire attempt.
                 TopBlocks = 18, // Maximum number of blocks to randomize between; 0 = unlimited.
@@ -273,7 +273,7 @@ namespace Scripts {
                 MinimumDiameter = 0, // Minimum radius of threat to engage.
                 MaximumDiameter = 0, // Maximum radius of threat to engage; 0 = unlimited.
                 MaxTargetDistance = 10000, // Maximum distance at which targets will be automatically shot at; 0 = unlimited.
-                MinTargetDistance = 500, // Minimum distance at which targets will be automatically shot at.
+                MinTargetDistance = 1000, // Minimum distance at which targets will be automatically shot at.
                 TopTargets = 0, // Maximum number of targets to randomize between; 0 = unlimited.
                 CycleTargets = 0, // Number of targets to "cycle" per acquire attempt.
                 TopBlocks = 0, // Maximum number of blocks to randomize between; 0 = unlimited.
@@ -495,7 +495,7 @@ namespace Scripts {
                 MinimumDiameter = 0, // Minimum radius of threat to engage.
                 MaximumDiameter = 0, // Maximum radius of threat to engage; 0 = unlimited.
                 MaxTargetDistance = 10000, // Maximum distance at which targets will be automatically shot at; 0 = unlimited.
-                MinTargetDistance = 500, // Minimum distance at which targets will be automatically shot at.
+                MinTargetDistance = 1000, // Minimum distance at which targets will be automatically shot at.
                 TopTargets = 0, // Maximum number of targets to randomize between; 0 = unlimited.
                 CycleTargets = 0, // Number of targets to "cycle" per acquire attempt.
                 TopBlocks = 0, // Maximum number of blocks to randomize between; 0 = unlimited.
