@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "qmgbcHMdcbvQ8zJhZNIUM6PsU/BkBGQHEzskPDAKLoQdg8LZSKy6Ck2CdBsjm+gjvpE6kMlCSDbLuUImI2gFPg==",
+  "dgSpecHash": "/9tjWVgP+YFez4K8Hc7nLokHB6bv70LvEvFYjY7FqRFKkA1DPXSeAazO6IXBIH0DKc0IqiFV2zA4Vo6HIu2GjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Muzzled\\AppData\\Roaming\\SpaceEngineers\\Mods\\StarCore-Homeworld-Craft\\CoreParts.csproj",
+  "projectFilePath": "C:\\Users\\natha\\AppData\\Roaming\\SpaceEngineers\\Mods\\StarCore-Homeworld-Craft\\CoreParts.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Muzzled\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Muzzled\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\natha\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\natha\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
