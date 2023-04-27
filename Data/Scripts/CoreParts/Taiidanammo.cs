@@ -2822,7 +2822,7 @@ namespace Scripts
                         AccelMulti = 1.0, // Modify default acceleration by this factor
                         DeAccelMulti = 0, // Modifies your default deacceleration by this factor
                         TotalAccelMulti = 0, // Modifies your default totalacceleration by this factor
-                        SpeedCapMulti = 0.5, // Limit max speed to this factor, must keep this value BELOW default maxspeed (1).
+                        SpeedCapMulti = 0.25, // Limit max speed to this factor, must keep this value BELOW default maxspeed (1).
 
                         // Target navigation behavior 
                         Orbit = false, // Orbit the target
