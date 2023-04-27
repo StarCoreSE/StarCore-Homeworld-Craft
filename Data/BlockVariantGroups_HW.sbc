@@ -8,9 +8,10 @@
             <DisplayName>DisplayName_BlockGroup_TurretGroup</DisplayName>
             <Description>Description_BlockGroup_TurretGroup</Description>
             <Blocks>
-              <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanRail" />
-              <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanRailCompact" />
-              <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanHangar" />
+              <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanRailFighter" />
+              <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanRailBomber" />
+              <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanHangarFighter" />
+              <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanHangarBomber" />
               <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanSingleHangar" />
             </Blocks>
         </BlockVariantGroup>
