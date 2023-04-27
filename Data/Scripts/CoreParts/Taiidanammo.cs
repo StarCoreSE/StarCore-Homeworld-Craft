@@ -77,7 +77,7 @@ namespace Scripts
             {
                 AmmoRound = "Taiidan Interceptor Attack", // AmmoRound field of the ammo to spawn.
                 Fragments = 1, // Number of projectiles to spawn.
-                Degrees = 0.5, // Cone in which to randomize direction of spawned projectiles.
+                Degrees = 0.5f, // Cone in which to randomize direction of spawned projectiles.
                 Reverse = false, // Spawn projectiles backward instead of forward.
                 DropVelocity = false, // fragments will not inherit velocity from parent.
                 Offset = 0f, // Offsets the fragment spawn by this amount, in meters (positive forward, negative for backwards), value is read from parent ammo type.
