@@ -177,7 +177,7 @@
 
       <Description>
 
-        Launches a variety of Taiidani ships.
+        Launches Taiidani bombers.
         Both ends need to be open to space.
         Capacity: 40 Bombers
         MaxActive = 5
@@ -267,7 +267,7 @@
 
       <Description>
 
-        Launches a variety of Taiidani ships.
+        Launches Taiidani fighters.
         Both ends need to be open to space.
         This weapon will NOT target grids!
         Switch ammos with Cycle Ammo or in the K menu.
