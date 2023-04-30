@@ -40,10 +40,10 @@ namespace Scripts
     partial class Parts
     {
         
-        private AmmoDef taiidan_interceptor_debris_Parent => new AmmoDef
+        private AmmoDef taiidan_debris_Parent => new AmmoDef
         {
-            AmmoMagazine = "", // SubtypeId of physical ammo magazine. Use "Energy" for weapons without physical ammo.
-            AmmoRound = "interceptordebrisP", // Name of ammo in terminal, should be different for each ammo type used by the same weapon.
+            AmmoMagazine = "Energy", // SubtypeId of physical ammo magazine. Use "Energy" for weapons without physical ammo.
+            AmmoRound = "taiidandebrisP", // Name of ammo in terminal, should be different for each ammo type used by the same weapon.
             HybridRound = false, // Use both a physical ammo magazine and energy per shot.
             EnergyCost = 0.001f, // Scaler for energy per shot (EnergyCost * BaseDamage * (RateOfFire / 3600) * BarrelsPerShot * TrajectilesPerBarrel). Uses EffectStrength instead of BaseDamage if EWAR.
             BaseDamage = 5000f, // Direct damage; one steel plate is worth 100.
@@ -434,10 +434,10 @@ namespace Scripts
             }, // Don't edit below this line
         };
 
-        private AmmoDef taiidan_interceptor_debris1 => new AmmoDef
+        private AmmoDef taiidan_debris1 => new AmmoDef
         {
             AmmoMagazine = "Energy", // SubtypeId of physical ammo magazine. Use "Energy" for weapons without physical ammo.
-            AmmoRound = "interceptordebris1", // Name of ammo in terminal, should be different for each ammo type used by the same weapon.
+            AmmoRound = "taiidandebris1", // Name of ammo in terminal, should be different for each ammo type used by the same weapon.
             HybridRound = false, // Use both a physical ammo magazine and energy per shot.
             EnergyCost = 0.001f, // Scaler for energy per shot (EnergyCost * BaseDamage * (RateOfFire / 3600) * BarrelsPerShot * TrajectilesPerBarrel). Uses EffectStrength instead of BaseDamage if EWAR.
             BaseDamage = 5000f, // Direct damage; one steel plate is worth 100.
@@ -803,10 +803,10 @@ namespace Scripts
             }, // Don't edit below this line
         };
 
-        private AmmoDef taiidan_interceptor_debris2 => new AmmoDef
+        private AmmoDef taiidan_debris2 => new AmmoDef
         {
             AmmoMagazine = "Energy", // SubtypeId of physical ammo magazine. Use "Energy" for weapons without physical ammo.
-            AmmoRound = "interceptordebris2", // Name of ammo in terminal, should be different for each ammo type used by the same weapon.
+            AmmoRound = "taiidandebris2", // Name of ammo in terminal, should be different for each ammo type used by the same weapon.
             HybridRound = false, // Use both a physical ammo magazine and energy per shot.
             EnergyCost = 0.001f, // Scaler for energy per shot (EnergyCost * BaseDamage * (RateOfFire / 3600) * BarrelsPerShot * TrajectilesPerBarrel). Uses EffectStrength instead of BaseDamage if EWAR.
             BaseDamage = 5000f, // Direct damage; one steel plate is worth 100.
@@ -1172,10 +1172,10 @@ namespace Scripts
             }, // Don't edit below this line
         };
 
-        private AmmoDef taiidan_interceptor_debris3 => new AmmoDef
+        private AmmoDef taiidan_debris3 => new AmmoDef
         {
             AmmoMagazine = "Energy", // SubtypeId of physical ammo magazine. Use "Energy" for weapons without physical ammo.
-            AmmoRound = "interceptordebris3", // Name of ammo in terminal, should be different for each ammo type used by the same weapon.
+            AmmoRound = "taiidandebris3", // Name of ammo in terminal, should be different for each ammo type used by the same weapon.
             HybridRound = false, // Use both a physical ammo magazine and energy per shot.
             EnergyCost = 0.001f, // Scaler for energy per shot (EnergyCost * BaseDamage * (RateOfFire / 3600) * BarrelsPerShot * TrajectilesPerBarrel). Uses EffectStrength instead of BaseDamage if EWAR.
             BaseDamage = 5000f, // Direct damage; one steel plate is worth 100.
@@ -1541,10 +1541,10 @@ namespace Scripts
             }, // Don't edit below this line
         };
 
-        private AmmoDef taiidan_interceptor_debris4 => new AmmoDef
+        private AmmoDef taiidan_debris4 => new AmmoDef
         {
             AmmoMagazine = "Energy", // SubtypeId of physical ammo magazine. Use "Energy" for weapons without physical ammo.
-            AmmoRound = "interceptordebris4", // Name of ammo in terminal, should be different for each ammo type used by the same weapon.
+            AmmoRound = "taiidandebris4", // Name of ammo in terminal, should be different for each ammo type used by the same weapon.
             HybridRound = false, // Use both a physical ammo magazine and energy per shot.
             EnergyCost = 0.001f, // Scaler for energy per shot (EnergyCost * BaseDamage * (RateOfFire / 3600) * BarrelsPerShot * TrajectilesPerBarrel). Uses EffectStrength instead of BaseDamage if EWAR.
             BaseDamage = 5000f, // Direct damage; one steel plate is worth 100.

@@ -75,7 +75,7 @@ namespace Scripts
             },
             Fragment = new FragmentDef // Formerly known as Shrapnel. Spawns specified ammo fragments on projectile death (via hit or detonation).
             {
-                AmmoRound = "Taiidan Interceptor Attack", // AmmoRound field of the ammo to spawn.
+                AmmoRound = "taiidandebrisP", // AmmoRound field of the ammo to spawn.
                 Fragments = 1, // Number of projectiles to spawn.
                 Degrees = 0.5f, // Cone in which to randomize direction of spawned projectiles.
                 Reverse = false, // Spawn projectiles backward instead of forward.
@@ -104,7 +104,7 @@ namespace Scripts
             Pattern = new PatternDef
             {
                 Patterns = new[] { // If enabled, set of multiple ammos to fire in order instead of the main ammo.
-                   "",
+                   "Taiidan Interceptor Attack",
                 },
                 Mode = Fragment, // Select when to activate this pattern, options: Never, Weapon, Fragment, Both 
                 TriggerChance = 1f, // This is %
@@ -1974,7 +1974,7 @@ namespace Scripts
             },
             Fragment = new FragmentDef // Formerly known as Shrapnel. Spawns specified ammo fragments on projectile death (via hit or detonation).
             {
-                AmmoRound = "Taiidan Bomber Attack", // AmmoRound field of the ammo to spawn.
+                AmmoRound = "taiidandebrisP", // AmmoRound field of the ammo to spawn.
                 Fragments = 1, // Number of projectiles to spawn.
                 Degrees = 0.2f, // Cone in which to randomize direction of spawned projectiles.
                 Reverse = false, // Spawn projectiles backward instead of forward.
@@ -2003,14 +2003,14 @@ namespace Scripts
             Pattern = new PatternDef
             {
                 Patterns = new[] { // If enabled, set of multiple ammos to fire in order instead of the main ammo.
-                   "",
+                   "Taiidan Bomber Attack",
                 },
                 Mode = Fragment, // Select when to activate this pattern, options: Never, Weapon, Fragment, Both 
                 TriggerChance = 1f, // This is %
                 Random = false, // This randomizes the number spawned at once, NOT the list order.
                 RandomMin = 1,
                 RandomMax = 1,
-                SkipParent = false, // Skip the Ammo itself, in the list
+                SkipParent = true, // Skip the Ammo itself, in the list
                 PatternSteps = 1, // Number of Ammos activated per round, will progress in order and loop. Ignored if Random = true.
             },
             DamageScales = new DamageScaleDef

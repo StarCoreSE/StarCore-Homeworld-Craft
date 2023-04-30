@@ -223,6 +223,13 @@ namespace Scripts {
             Ammos = new[] {
                 taiidan_bomber_Main,
                 taiidan_bomber_attack,
+
+                taiidan_debris_Parent,
+                taiidan_debris1,
+                taiidan_debris2,
+                taiidan_debris3,
+                taiidan_debris4,
+
             },
 
             Animations = Rail_Animation1,
@@ -438,6 +445,12 @@ namespace Scripts {
             Ammos = new[] {
                 taiidan_interceptor_Main,
                 taiidan_interceptor_attack,
+
+                taiidan_debris_Parent,
+                taiidan_debris1,
+                taiidan_debris2,
+                taiidan_debris3,
+                taiidan_debris4,
             },
 
             Animations = Rail_Animation1,
@@ -656,6 +669,12 @@ namespace Scripts {
             Ammos = new[] {
                 taiidan_bomber_Main,
                 taiidan_bomber_attack,
+
+                taiidan_debris_Parent,
+                taiidan_debris1,
+                taiidan_debris2,
+                taiidan_debris3,
+                taiidan_debris4,
             },
 
             //Animations = Taiidan_Animation,
@@ -872,6 +891,12 @@ namespace Scripts {
             Ammos = new[] {
                 taiidan_interceptor_Main,
                 taiidan_interceptor_attack,
+
+                taiidan_debris_Parent,
+                taiidan_debris1,
+                taiidan_debris2,
+                taiidan_debris3,
+                taiidan_debris4,
             },
 
             //Animations = Taiidan_Animation,
@@ -1089,6 +1114,13 @@ namespace Scripts {
             Ammos = new[] {
                 taiidan_interceptor_Main,
                 taiidan_interceptor_attack,
+
+                taiidan_debris_Parent,
+                taiidan_debris1,
+                taiidan_debris2,
+                taiidan_debris3,
+                taiidan_debris4,
+
             },
 
             //Animations = Taiidan_Animation,
