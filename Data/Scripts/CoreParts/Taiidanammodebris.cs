@@ -78,7 +78,7 @@ namespace Scripts
             },
             Fragment = new FragmentDef // Formerly known as Shrapnel. Spawns specified ammo fragments on projectile death (via hit or detonation).
             {
-                AmmoRound = "interceptordebris1", // AmmoRound field of the ammo to spawn.
+                AmmoRound = "taiidandebris1", // AmmoRound field of the ammo to spawn.
                 Fragments = 1, // Number of projectiles to spawn.
                 Degrees = 15, // Cone in which to randomize direction of spawned projectiles.
                 Reverse = false, // Spawn projectiles backward instead of forward.
@@ -106,10 +106,10 @@ namespace Scripts
             Pattern = new PatternDef
             {
                 Patterns = new[] { // If enabled, set of multiple ammos to fire in order instead of the main ammo.
-                    "interceptordebris1",
-                    "interceptordebris2",
-                    "interceptordebris3",
-                    "interceptordebris4",
+                    "taiidandebris1",
+                    "taiidandebris2",
+                    "taiidandebris3",
+                    "taiidandebris4",
                 },
                 Mode = Fragment, // Select when to activate this pattern, options: Never, Weapon, Fragment, Both 
                 TriggerChance = 1f, // This is %
