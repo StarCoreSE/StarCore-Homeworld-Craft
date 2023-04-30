@@ -203,11 +203,11 @@ namespace Scripts
                     //.Pooled damage behaves in a pooled manner that once exhausted damage ceases.
                     ArmOnlyOnHit = false, // Detonation only is available, After it hits something, when this is true. IE, if shot down, it won't explode.
                     MinArmingTime = 0, // In ticks, before the Ammo is allowed to explode, detonate or similar; This affects shrapnel spawning.
-                    NoVisuals = false,
+                    NoVisuals = true,
                     NoSound = false,
                     ParticleScale = 5,
                     CustomParticle = "Grid_Destruction", // Particle SubtypeID, from your Particle SBC
-                    CustomSound = "", // SubtypeID from your Audio SBC, not a filename
+                    CustomSound = "hwshipexplode", // SubtypeID from your Audio SBC, not a filename
                     Shape = Diamond, // Round or Diamond
                 },
             },
@@ -1325,9 +1325,9 @@ namespace Scripts
                         EndCondition3 = Ignore,
 
                         // Start/End thresholds -- both conditions are evaluated before activation, use Ignore to skip
-                        Start1Value = 5,
+                        Start1Value = 500,
                         Start2Value = 0,
-                        End1Value = 2,
+                        End1Value = 200,
                         End2Value = 0,
                         End3Value = 0, 
                         
@@ -1594,7 +1594,7 @@ namespace Scripts
                 Offset = 0f, // Offsets the fragment spawn by this amount, in meters (positive forward, negative for backwards), value is read from parent ammo type.
                 Radial = 0f, // Determines starting angle for Degrees of spread above.  IE, 0 degrees and 90 radial goes perpendicular to travel path
                 MaxChildren = 0, // number of maximum branches for fragments from the roots point of view, 0 is unlimited
-                IgnoreArming = true, // If true, ignore ArmOnHit or MinArmingTime in EndOfLife definitions
+                IgnoreArming = false, // If true, ignore ArmOnHit or MinArmingTime in EndOfLife definitions
                 AdvOffset = Vector(x: 0, y: 0, z: 0), // advanced offsets the fragment by xyz coordinates relative to parent, value is read from fragment ammo type.
                 TimedSpawns = new TimedSpawnDef // disables FragOnEnd in favor of info specified below
                 {
@@ -1714,7 +1714,7 @@ namespace Scripts
                     ArmOnlyOnHit = false, // Detonation only is available, After it hits something, when this is true. IE, if shot down, it won't explode.
                     MinArmingTime = 0, // In ticks, before the Ammo is allowed to explode, detonate or similar; This affects shrapnel spawning.
                     NoVisuals = false,
-                    NoSound = true,
+                    NoSound = false,
                     ParticleScale = 1,
                     CustomParticle = "BangShooty", // Particle SubtypeID, from your Particle SBC
                     CustomSound = "", // SubtypeID from your Audio SBC, not a filename
@@ -1982,7 +1982,8 @@ namespace Scripts
                 Offset = 0f, // Offsets the fragment spawn by this amount, in meters (positive forward, negative for backwards), value is read from parent ammo type.
                 Radial = 0f, // Determines starting angle for Degrees of spread above.  IE, 0 degrees and 90 radial goes perpendicular to travel path
                 MaxChildren = 0, // number of maximum branches for fragments from the roots point of view, 0 is unlimited
-                IgnoreArming = true, // If true, ignore ArmOnHit or MinArmingTime in EndOfLife definitions
+                IgnoreArming = false, // If true, ignore ArmOnHit or MinArmingTime in EndOfLife definitions
+                ArmWhenHit = false, // Setting this to true will arm the projectile when its shot by other projectiles.
                 AdvOffset = Vector(x: 0, y: 0, z: 0), // advanced offsets the fragment by xyz coordinates relative to parent, value is read from fragment ammo type.
                 TimedSpawns = new TimedSpawnDef // disables FragOnEnd in favor of info specified below
                 {
@@ -2101,7 +2102,7 @@ namespace Scripts
                     //.Pooled damage behaves in a pooled manner that once exhausted damage ceases.
                     ArmOnlyOnHit = false, // Detonation only is available, After it hits something, when this is true. IE, if shot down, it won't explode.
                     MinArmingTime = 0, // In ticks, before the Ammo is allowed to explode, detonate or similar; This affects shrapnel spawning.
-                    NoVisuals = false,
+                    NoVisuals = true,
                     NoSound = false,
                     ParticleScale = 8,
                     CustomParticle = "Grid_Destruction", // Particle SubtypeID, from your Particle SBC
@@ -3378,7 +3379,7 @@ namespace Scripts
                 Offset = 0f, // Offsets the fragment spawn by this amount, in meters (positive forward, negative for backwards), value is read from parent ammo type.
                 Radial = 0f, // Determines starting angle for Degrees of spread above.  IE, 0 degrees and 90 radial goes perpendicular to travel path
                 MaxChildren = 0, // number of maximum branches for fragments from the roots point of view, 0 is unlimited
-                IgnoreArming = true, // If true, ignore ArmOnHit or MinArmingTime in EndOfLife definitions
+                IgnoreArming = false, // If true, ignore ArmOnHit or MinArmingTime in EndOfLife definitions
                 AdvOffset = Vector(x: 0, y: 0, z: 0), // advanced offsets the fragment by xyz coordinates relative to parent, value is read from fragment ammo type.
                 TimedSpawns = new TimedSpawnDef // disables FragOnEnd in favor of info specified below
                 {
