@@ -19,7 +19,7 @@
         
       </Description>
 			
-			<Icon>Textures\Icons\Taiidan_insignia.png</Icon>
+			<Icon>Textures\Icons\Taiidan_insigniaB.png</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="3" y="7" z="30"/>
@@ -101,7 +101,7 @@
 
       </Description>
 
-      <Icon>Textures\Icons\Taiidan_insignia.png</Icon>
+      <Icon>Textures\Icons\Taiidan_insigniaF.png</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="3" y="7" z="30"/>
@@ -185,7 +185,7 @@
 
       </Description>
 			
-			<Icon>Textures\Icons\Taiidan_insignia.png</Icon>
+			<Icon>Textures\Icons\Taiidan_insigniaB.png</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="13" y="5" z="17"/>
@@ -277,7 +277,7 @@
 
       </Description>
 
-      <Icon>Textures\Icons\Taiidan_insignia.png</Icon>
+      <Icon>Textures\Icons\Taiidan_insigniaF.png</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="13" y="5" z="17"/>
@@ -369,7 +369,7 @@
 
       </Description>
 
-      <Icon>Textures\Icons\Taiidan_insignia.png</Icon>
+      <Icon>Textures\Icons\Taiidan_insigniaF.png</Icon>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="5" y="5" z="7"/>
