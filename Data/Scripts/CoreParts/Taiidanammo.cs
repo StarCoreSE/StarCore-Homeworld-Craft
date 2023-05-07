@@ -75,7 +75,7 @@ namespace Scripts
             },
             Fragment = new FragmentDef // Formerly known as Shrapnel. Spawns specified ammo fragments on projectile death (via hit or detonation).
             {
-                AmmoRound = "taiidandebrisP", // AmmoRound field of the ammo to spawn.
+                AmmoRound = "Taiidan Interceptor Attack", // AmmoRound field of the ammo to spawn.
                 Fragments = 1, // Number of projectiles to spawn.
                 Degrees = 2f, // Cone in which to randomize direction of spawned projectiles.
                 Reverse = false, // Spawn projectiles backward instead of forward.
@@ -84,7 +84,7 @@ namespace Scripts
                 Radial = 0f, // Determines starting angle for Degrees of spread above.  IE, 0 degrees and 90 radial goes perpendicular to travel path
                 MaxChildren = 0, // number of maximum branches for fragments from the roots point of view, 0 is unlimited
                 IgnoreArming = false, // If true, ignore ArmOnHit or MinArmingTime in EndOfLife definitions
-                ArmWhenHit = true, // Setting this to true will arm the projectile when its shot by other projectiles.
+                ArmWhenHit = false, // Setting this to true will arm the projectile when its shot by other projectiles.
                 AdvOffset = Vector(x: 0, y: 0, z: 0), // advanced offsets the fragment by xyz coordinates relative to parent, value is read from fragment ammo type.
                 TimedSpawns = new TimedSpawnDef // disables FragOnEnd in favor of info specified below
                 {
@@ -104,12 +104,16 @@ namespace Scripts
             Pattern = new PatternDef
             {
                 Patterns = new[] { // If enabled, set of multiple ammos to fire in order instead of the main ammo.
-                    "Taiidan Interceptor Attack","Taiidan Interceptor Attack","Taiidan Interceptor Attack",
-                    "Taiidan Interceptor Attack","Taiidan Interceptor Attack","Taiidan Interceptor Attack",
-                    "Taiidan Interceptor Attack","Taiidan Interceptor Attack","Taiidan Interceptor Attack",
-                    "Taiidan Interceptor Attack","Taiidan Interceptor Attack","Taiidan Interceptor Attack",
-                    "Taiidan Interceptor Attack","Taiidan Interceptor Attack","Taiidan Interceptor Attack",
-                    "Taiidan Interceptor Attack","Taiidan Interceptor Attack","Taiidan Interceptor Attack",
+                    "Taiidan Interceptor Attack", "Taiidan Interceptor Attack", "Taiidan Interceptor Attack",
+                    "Taiidan Interceptor Attack", "Taiidan Interceptor Attack", "Taiidan Interceptor Attack",
+                    "Taiidan Interceptor Attack", "Taiidan Interceptor Attack", "Taiidan Interceptor Attack",
+                    "Taiidan Interceptor Attack", "Taiidan Interceptor Attack", "Taiidan Interceptor Attack",
+                    "Taiidan Interceptor Attack", "Taiidan Interceptor Attack", "Taiidan Interceptor Attack",
+                    "Taiidan Interceptor Attack", "Taiidan Interceptor Attack", "Taiidan Interceptor Attack",
+                    "Taiidan Interceptor Attack", "Taiidan Interceptor Attack", "Taiidan Interceptor Attack",
+                    "Taiidan Interceptor Attack", "Taiidan Interceptor Attack", "Taiidan Interceptor Attack",
+                    "Taiidan Interceptor Attack", "Taiidan Interceptor Attack", "Taiidan Interceptor Attack",
+                    "Taiidan Interceptor Attack", "Taiidan Interceptor Attack", "Taiidan Interceptor Attack",
                     "Taiidan Interceptor Missile Attack",
                 },
                 Mode = Fragment, // Select when to activate this pattern, options: Never, Weapon, Fragment, Both 
@@ -117,7 +121,7 @@ namespace Scripts
                 Random = false, // This randomizes the number spawned at once, NOT the list order.
                 RandomMin = 1,
                 RandomMax = 1,
-                SkipParent = true, // Skip the Ammo itself, in the list
+                SkipParent = false, // Skip the Ammo itself, in the list
                 PatternSteps = 1, // Number of Ammos activated per round, will progress in order and loop. Ignored if Random = true.
             },
             DamageScales = new DamageScaleDef
@@ -207,7 +211,7 @@ namespace Scripts
                     //.InvCurve drops off sharply from the middle and tapers to max radius
                     //.Squeeze does little damage to the middle, but rapidly increases damage toward max radius
                     //.Pooled damage behaves in a pooled manner that once exhausted damage ceases.
-                    ArmOnlyOnHit = true, // Detonation only is available, After it hits something, when this is true. IE, if shot down, it won't explode.
+                    ArmOnlyOnHit = false, // Detonation only is available, After it hits something, when this is true. IE, if shot down, it won't explode.
                     MinArmingTime = 0, // In ticks, before the Ammo is allowed to explode, detonate or similar; This affects shrapnel spawning.
                     NoVisuals = true,
                     NoSound = false,
@@ -1451,7 +1455,7 @@ namespace Scripts
                     },
                     Hit = new ParticleDef
                     {
-                        Name = "",
+                        Name = "CraftExplodeDebris",
                         ApplyToShield = true,
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
@@ -2376,7 +2380,7 @@ namespace Scripts
             },
             Fragment = new FragmentDef // Formerly known as Shrapnel. Spawns specified ammo fragments on projectile death (via hit or detonation).
             {
-                AmmoRound = "taiidandebrisP", // AmmoRound field of the ammo to spawn.
+                AmmoRound = "Taiidan Bomber Attack", // AmmoRound field of the ammo to spawn.
                 Fragments = 1, // Number of projectiles to spawn.
                 Degrees = 0.2f, // Cone in which to randomize direction of spawned projectiles.
                 Reverse = false, // Spawn projectiles backward instead of forward.
@@ -2385,7 +2389,7 @@ namespace Scripts
                 Radial = 0f, // Determines starting angle for Degrees of spread above.  IE, 0 degrees and 90 radial goes perpendicular to travel path
                 MaxChildren = 0, // number of maximum branches for fragments from the roots point of view, 0 is unlimited
                 IgnoreArming = false, // If true, ignore ArmOnHit or MinArmingTime in EndOfLife definitions
-                ArmWhenHit = true, // Setting this to true will arm the projectile when its shot by other projectiles.
+                ArmWhenHit = false, // Setting this to true will arm the projectile when its shot by other projectiles.
                 AdvOffset = Vector(x: 0, y: 0, z: 0), // advanced offsets the fragment by xyz coordinates relative to parent, value is read from fragment ammo type.
                 TimedSpawns = new TimedSpawnDef // disables FragOnEnd in favor of info specified below
                 {
@@ -2405,14 +2409,14 @@ namespace Scripts
             Pattern = new PatternDef
             {
                 Patterns = new[] { // If enabled, set of multiple ammos to fire in order instead of the main ammo.
-                   "Taiidan Bomber Attack",
+                   "",
                 },
                 Mode = Fragment, // Select when to activate this pattern, options: Never, Weapon, Fragment, Both 
                 TriggerChance = 1f, // This is %
                 Random = false, // This randomizes the number spawned at once, NOT the list order.
                 RandomMin = 1,
                 RandomMax = 1,
-                SkipParent = true, // Skip the Ammo itself, in the list
+                SkipParent = false, // Skip the Ammo itself, in the list
                 PatternSteps = 1, // Number of Ammos activated per round, will progress in order and loop. Ignored if Random = true.
             },
             DamageScales = new DamageScaleDef
@@ -2502,7 +2506,7 @@ namespace Scripts
                     //.InvCurve drops off sharply from the middle and tapers to max radius
                     //.Squeeze does little damage to the middle, but rapidly increases damage toward max radius
                     //.Pooled damage behaves in a pooled manner that once exhausted damage ceases.
-                    ArmOnlyOnHit = true, // Detonation only is available, After it hits something, when this is true. IE, if shot down, it won't explode.
+                    ArmOnlyOnHit = false, // Detonation only is available, After it hits something, when this is true. IE, if shot down, it won't explode.
                     MinArmingTime = 0, // In ticks, before the Ammo is allowed to explode, detonate or similar; This affects shrapnel spawning.
                     NoVisuals = true,
                     NoSound = false,
@@ -3631,7 +3635,7 @@ namespace Scripts
                     },
                     Hit = new ParticleDef
                     {
-                        Name = "",
+                        Name = "CraftExplodeDebris",
                         ApplyToShield = true,
                         Offset = Vector(x: 0, y: 0, z: 0),
                         Extras = new ParticleOptionDef
