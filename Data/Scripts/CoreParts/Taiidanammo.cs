@@ -2175,8 +2175,8 @@ namespace Scripts
             Trajectory = new TrajectoryDef
             {
                 Guidance = Smart, // None, Remote, TravelTo, Smart, DetectTravelTo, DetectSmart, DetectFixed
-                TargetLossDegree = 90,
-                TargetLossTime = 3, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                TargetLossDegree = 0,
+                TargetLossTime = 0, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 MaxLifeTime = 1900, // 0 is disabled, Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AccelPerSec = 1500,
                 DesiredSpeed = 1800, // voxel phasing if you go above 5100
@@ -2191,7 +2191,7 @@ namespace Scripts
                 {
                     SteeringLimit = 0, // 0 means no limit, value is in degrees, good starting is 150.  This enable advanced smart "control", cost of 3 on a scale of 1-5, 0 being basic smart.
                     Inaccuracy = 0f, // 0 is perfect, hit accuracy will be a random num of meters between 0 and this value.
-                    Aggressiveness = 5f, // controls how responsive tracking is.
+                    Aggressiveness = 6f, // controls how responsive tracking is.
                     MaxLateralThrust = 1f, // controls how sharp the trajectile may turn. Cap is 1, and this is % of your Accel.
                     NavAcceleration = 0, // helps influence how the projectile steers. 
                     TrackingDelay = 0, // Measured in Shape diameter units traveled.
@@ -2199,7 +2199,7 @@ namespace Scripts
                     CheckFutureIntersection = false, // Utilize obstacle avoidance for drones
                     MaxChaseTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     OverideTarget = false, // when set to true ammo picks its own target, does not use hardpoint's.
-                    MaxTargets = 5, // Number of targets allowed before ending, 0 = unlimited
+                    MaxTargets = 9, // Number of targets allowed before ending, 0 = unlimited
                     NoTargetExpire = false, // Expire without ever having a target at TargetLossTime
                     Roam = false, // Roam current area after target loss
                     KeepAliveAfterTargetLoss = false, // Whether to stop early death of projectile on target loss
@@ -2207,7 +2207,8 @@ namespace Scripts
                     OffsetRatio = 0f, // The ratio to offset the random direction (0 to 1) 
                     OffsetTime = 0, // how often to offset degree, measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..)
                     FocusOnly = false, // only target the constructs Ai's focus
-                    AltNavigation = true,
+                    MinTurnSpeed = 400,
+                    AltNavigation = false,
                 },
                 Mines = new MinesDef
                 {
@@ -2303,7 +2304,7 @@ namespace Scripts
                         DecayTime = 2,
                         Color = Color(red: 3, green: 1, blue: 1f, alpha: 0.1f),
                         Back = false,
-                        CustomWidth = 0.2f,
+                        CustomWidth = 0.52f,
                         UseWidthVariance = false,
                         UseColorFade = true,
                     },
