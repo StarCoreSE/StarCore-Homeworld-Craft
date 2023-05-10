@@ -12,6 +12,7 @@
               <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanRailBomber" />
               <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanHangarFighter" />
               <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanHangarBomber" />
+              <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanHangarBomberMedium" />
               <Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TaiidanSingleHangar" />
             </Blocks>
         </BlockVariantGroup>
