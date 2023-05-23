@@ -3100,7 +3100,7 @@ namespace Scripts
                         OffsetTime = 0, // How often to change the offset direction.
                         
                         // Other
-                        NoTimedSpawns = true, // When true timedSpawns will not be triggered while this approach is active.
+                        NoTimedSpawns = false, // When true timedSpawns will not be triggered while this approach is active.
                         DisableAvoidance = false, // Disable futureIntersect.
                         IgnoreAntiSmart = true, // If set to true, antismart cannot change this approaches target.
                         HeatRefund = 0, // how much heat to refund when related EndEvent/StartEvent is met.
