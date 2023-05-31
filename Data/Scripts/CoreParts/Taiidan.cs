@@ -947,7 +947,7 @@ namespace Scripts {
                 CycleTargets = 4, // Number of targets to "cycle" per acquire attempt.
                 TopBlocks = 0, // Maximum number of blocks to randomize between; 0 = unlimited.
                 CycleBlocks = 0, // Number of blocks to "cycle" per acquire attempt.
-                StopTrackingSpeed = 0, // Do not track threats traveling faster than this speed; 0 = unlimited.
+                StopTrackingSpeed = 1000, // Do not track threats traveling faster than this speed; 0 = unlimited.
                 UniqueTargetPerWeapon = false, // only applies to multi-weapon blocks 
                 MaxTrackingTime = 60, // After this time has been reached the weapon will stop tracking existing target and scan for a new one, only applies to turreted weapons
                 ShootBlanks = false, // Do not generate projectiles when shooting
