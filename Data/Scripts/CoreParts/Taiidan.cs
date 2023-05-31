@@ -381,7 +381,7 @@ namespace Scripts {
                     HeatPerShot = 100, // Heat generated per shot.
                     MaxHeat = 4000, // Max heat before weapon enters cooldown (70% of max heat).
                     Cooldown = .20f, // Percentage of max heat to be under to start firing again after overheat; accepts 0 - 0.95
-                    HeatSinkRate = 0, // Amount of heat lost per second.
+                    HeatSinkRate = 12, // Amount of heat lost per second.
                     DegradeRof = false, // Progressively lower rate of fire when over 80% heat threshold (80% of max heat).
                     ShotsInBurst = 0, // Use this if you don't want the weapon to fire an entire physical magazine in one go. Should not be more than your magazine capacity.
                     DelayAfterBurst = 0, // How long to spend "reloading" after each burst. Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
@@ -1051,7 +1051,7 @@ namespace Scripts {
                     HeatPerShot = 100, // Heat generated per shot.
                     MaxHeat = 8000, // Max heat before weapon enters cooldown (70% of max heat).
                     Cooldown = .20f, // Percentage of max heat to be under to start firing again after overheat; accepts 0 - 0.95
-                    HeatSinkRate = 0, // Amount of heat lost per second.
+                    HeatSinkRate = 12, // Amount of heat lost per second.
                     DegradeRof = false, // Progressively lower rate of fire when over 80% heat threshold (80% of max heat).
                     ShotsInBurst = 0, // Use this if you don't want the weapon to fire an entire physical magazine in one go. Should not be more than your magazine capacity.
                     DelayAfterBurst = 0, // How long to spend "reloading" after each burst. Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
